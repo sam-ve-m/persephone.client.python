@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "persephone_client"
+version = "0.1.0"
+description = ""
+authors = ["Anderson Faustino Lima <afl@lionx.com.br>"]
+
+packages = [
+    { include = "persephone_client"},
+    { include = "persephone_client/**/*.py" },
+]
+[tool.poetry.dependencies]
+python = "^3.8"
+kafka-python = "^2.0.2"
+python-decouple = "^3.4"
+jsonschema = "^3.2.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
