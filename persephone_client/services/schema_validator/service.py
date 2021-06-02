@@ -16,10 +16,7 @@ class SchemaValidatorService(ISchemaValidator):
             raise Exception("Given message must not be empty")
 
         try:
-            # validate(msg, schema)
-            print("validating")
-        except Exception:
-            return False
-        finally:
+            validator(msg, schema)
             return True
-
+        except:
+            return False
