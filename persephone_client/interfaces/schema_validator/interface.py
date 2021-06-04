@@ -5,7 +5,7 @@ class ISchemaValidator(ABC):
 
     @classmethod
     @abstractmethod
-    def schema_validator(cls, validator: any, msg: dict, schema: dict) -> bool:
+    def schema_validator(cls, validator: any, payload: dict, schema: dict) -> bool:
 
         pass
 

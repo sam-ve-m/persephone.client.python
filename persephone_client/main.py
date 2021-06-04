@@ -23,13 +23,13 @@ class Persephone:
         self.producer = producer
         return Persephone(host=self.host, port=self.port)
 
-    def run(self, topic: str, partition: int, msg: dict, schema: dict) -> bool:
-        if self._validate(validator=self.validator, msg=msg, schema=schema):
-            QueueProducerController.send_to_queue(producer=self.producer, topic=topic, partition=partition, msg=msg)
+    def run(self, topic: str, partition: int, payload: dict, schema_list: list) -> bool:
+        if self._validate(validator=self.validator, payload=payload, schema=schema_list):
+            QueueProducerController.send_to_queue(producer=self.producer, topic=topic, partition=partition, payload=payload)
             return True
         else:
             return False
 
     @staticmethod
-    def _validate(validator: any, msg: dict, schema: dict) -> bool:
-        return SchemaValidatorController.schema_validator(validator=validator, msg=msg, schema=schema)
+    def _validate(validator: any, payload: dict, schema_list: list) -> bool:
+        return SchemaValidatorController.schema_validator(validator=validator, payload=payload, schema=schema_list)
