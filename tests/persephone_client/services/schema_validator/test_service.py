@@ -4,7 +4,7 @@ import pytest
 
 
 def test_invalid_message_as_empty_str():
-    msg = ""
+    payload = ""
     schema = {
         "type": "object",
         "properties": {
@@ -13,10 +13,10 @@ def test_invalid_message_as_empty_str():
     }
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_message_as_empty_byte():
-    msg = b""
+    payload = b""
     schema = {
         "type": "object",
         "properties": {
@@ -25,10 +25,10 @@ def test_invalid_message_as_empty_byte():
     }
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_message_as_str():
-    msg = "test message"
+    payload = "test message"
     schema = {
         "type": "object",
         "properties": {
@@ -37,10 +37,10 @@ def test_invalid_message_as_str():
     }
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_message_as_byte():
-    msg = b"test message"
+    payload = b"test message"
     schema = {
         "type": "object",
         "properties": {
@@ -49,10 +49,10 @@ def test_invalid_message_as_byte():
     }
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_message_as_empty_dict():
-    msg = {}
+    payload = {}
     schema = {
         "type": "object",
         "properties": {
@@ -61,45 +61,45 @@ def test_invalid_message_as_empty_dict():
     }
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must not be empty"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_schema_as_empty_dict():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = {}
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must not be empty"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_schema_as_empty_byte():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = b""
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_schema_as_empty_str():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = ""
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_schema_as_str():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = "test schema"
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_invalid_schema_as_byte():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = b"test schema"
     validator = MagicMock(return_value=True)
     with pytest.raises(Exception, match="Given message must be dict type"):
-        SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema)
+        SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema)
 
 def test_validate():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = {
         "type": "object",
         "properties": {
@@ -107,4 +107,4 @@ def test_validate():
         }
     }
     validator = MagicMock(return_value=True)
-    assert SchemaValidatorController.schema_validator(validator, msg=msg, schema=schema) is True
+    assert SchemaValidatorController.schema_validator(validator, payload=payload, schema=schema) is True

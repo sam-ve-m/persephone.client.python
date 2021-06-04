@@ -13,7 +13,7 @@ class StubbyValidator:
 
 
 def test_persephone_without_dependency_injection():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = {
         "type": "object",
         "properties": {
@@ -22,11 +22,11 @@ def test_persephone_without_dependency_injection():
     }
 
     persephone = Persephone(host="localhost", port=9092)
-    assert persephone.run(topic="test", partition=0, msg=msg, schema=schema) is True
+    assert persephone.run(topic="test", partition=0, payload=payload, schema=schema) is True
 
 
 def test_persephone_with_dependency_injection_True():
-    msg = {"key": "test"}
+    payload = {"key": "test"}
     schema = {
         "type": "object",
         "properties": {
@@ -38,4 +38,4 @@ def test_persephone_with_dependency_injection_True():
     producer = MagicMock(return_value=True)
     validator = MagicMock(return_value=True)
     persephone = persephone.with_dependency_injection(validator=validator, producer=producer)
-    assert persephone.run(topic="test", partition=0, msg=msg, schema=schema) is True
+    assert persephone.run(topic="test", partition=0, payload=payload, schema=schema) is True
