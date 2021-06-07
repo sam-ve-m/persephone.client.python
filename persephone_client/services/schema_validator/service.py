@@ -3,21 +3,20 @@ from persephone_client.services.builder_validator.service import BuilderValidato
 
 
 class SchemaValidatorService(ISchemaValidator):
-
     @classmethod
-    def schema_validator(cls, validator: any, payload: dict, schema_list: list) -> bool:
+    def schema_validator(
+        cls, validator: any, payload: dict, dict_schemas: dict
+    ) -> bool:
         if type(payload) != dict:
             raise Exception("Given message must be dict type")
         if type(payload) == dict and len(payload) < 1:
             raise Exception("Given message must not be empty")
 
-        if type(schema_list) != list:
-            raise Exception("Given message must be dict type")
-        if type(schema_list) == list and len(schema_list) < 1:
-            raise Exception("Given message must not be empty")
+        if type(dict_schemas) != dict:
+            raise Exception("Given dict_schema must be dict type")
+        if type(dict_schemas) == list and len(dict_schemas) < 1:
+            raise Exception("Given dict_schema must not be empty")
 
-        try:
-            BuilderValidator.check(validator=validator, payload=payload, schema_list=schema_list)
-            return True
-        except:
-            return False
+        builder_validator = BuilderValidator(validator=validator)
+        return builder_validator.check(payload=payload, dict_schemas=dict_schemas)
+
