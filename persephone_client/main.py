@@ -35,7 +35,6 @@ class Persephone:
         if self._validate(
             validator=self.validator, payload=payload, dict_schemas=dict_schemas
         ):
-            print("Sending to persephone")
             QueueProducerController.send_to_queue(
                 producer=self.producer,
                 topic=topic,

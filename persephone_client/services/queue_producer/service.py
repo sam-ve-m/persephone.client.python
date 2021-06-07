@@ -11,11 +11,6 @@ class QueueProducerService(IQueueProducer):
             raise Exception("Given message must be dict type")
         if type(payload) == dict and len(payload) < 1:
             raise Exception("Given message must not be empty")
-
-        print("queue payload", payload)
-        print("queue topic", topic)
-        print("queue partition", partition)
-
         try:
             producer.send(
                 topic=topic,

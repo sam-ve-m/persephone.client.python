@@ -10,8 +10,6 @@ class BuilderValidator(IBuilderValidator):
 
             exists_schema_property = parent_key in dict_schemas
             if exists_schema_property:
-                print("exists_schema_property", parent_key)
-                print("dict_schemas[key]", dict_schemas[parent_key])
                 try:
                     self.validator(payload, dict_schemas[parent_key])
                 except Exception as err:
@@ -22,7 +20,6 @@ class BuilderValidator(IBuilderValidator):
                 is_object = type(property_value) is dict
                 if is_object:
                     three_path = ".".join([parent_key, key])
-                    print("three_path: ", three_path)
                     self._chupeta(payload=property_value, dict_schemas=dict_schemas, parent_key=three_path)
 
                 is_dict_property_list = type(property_value) is list
