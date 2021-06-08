@@ -18,4 +18,5 @@ class QueueProducerService(IQueueProducer):
                 value=dumps(payload).encode(),
             )
         except Exception as err:
+            print(err)
             raise Exception("Something went wrong when sending to kafka queue")

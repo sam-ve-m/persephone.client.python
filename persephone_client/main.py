@@ -30,10 +30,10 @@ class Persephone:
         return Persephone(host=self.host, port=self.port)
 
     def run(
-        self, topic: str, partition: int, payload: dict, dict_schemas: dict
+        self, topic: str, partition: int, payload: dict, schema_key: str
     ) -> bool:
         if self._validate(
-            validator=self.validator, payload=payload, dict_schemas=dict_schemas
+            validator=self.validator, payload=payload, schema_key=schema_key
         ):
             QueueProducerController.send_to_queue(
                 producer=self.producer,
@@ -46,7 +46,7 @@ class Persephone:
         return False
 
     @staticmethod
-    def _validate(validator: any, payload: dict, dict_schemas: dict) -> bool:
+    def _validate(validator: any, payload: dict, schema_key: str) -> bool:
         return SchemaValidatorController.schema_validator(
-            validator=validator, payload=payload, dict_schemas=dict_schemas
+            validator=validator, payload=payload, schema_key=schema_key
         )
