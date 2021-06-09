@@ -1,16 +1,21 @@
 from persephone_client.interfaces.queue_producer.interface import IQueueProducer
 from json import dumps
+from typing import Optional
 
 
 class QueueProducerService(IQueueProducer):
     @classmethod
     def send_to_queue(
-        cls, producer: any, topic: str, partition: int, payload: dict
-    ) -> None:
+            cls, producer: any, topic: str, partition: int, payload: dict, logger: any
+    ) -> Optional[bool]:
         if type(payload) != dict:
-            raise Exception("Given message must be dict type")
+            if logger:
+                logger.error("Given message must be dict type", exc_info=True)
+            return False
         if type(payload) == dict and len(payload) < 1:
-            raise Exception("Given message must not be empty")
+            if logger:
+                logger.error("Given message must not be empty", exc_info=True)
+            return False
         try:
             producer.send(
                 topic=topic,
@@ -18,5 +23,6 @@ class QueueProducerService(IQueueProducer):
                 value=dumps(payload).encode(),
             )
         except Exception as err:
-            print(err)
-            raise Exception("Something went wrong when sending to kafka queue")
+            if logger:
+                logger.error(err, exc_info=True)
+            return False
