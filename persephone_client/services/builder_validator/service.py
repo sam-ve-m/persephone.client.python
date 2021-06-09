@@ -7,7 +7,8 @@ class BuilderValidator(IBuilderValidator):
     @classmethod
     def _chupeta(cls, validator: any, payload: dict, dict_schemas: dict, parent_key: str, logger: any) -> bool:
 
-        print(dict_schemas[parent_key])
+        # print(dict_schemas[parent_key])
+        print(dict_schemas)
         exists_schema_property = parent_key in dict_schemas
         if exists_schema_property:
             try:

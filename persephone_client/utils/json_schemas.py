@@ -152,26 +152,26 @@ provided_by_bureaux_schema = {
 
 string_provided_by_bureaux = {
     "type": "object",
-    "properties": {"value": {"type": "string"}, "source": "string"},
-    "required": ["type", "document_data"],
+    "properties": {"value": {"type": "string"}, "source": {"type": "string"}},
+    "required": ["value", "source"],
 }
 
 integer_provided_by_bureaux = {
     "type": "object",
-    "properties": {"value": {"type": "integer"}, "source": "string"},
-    "required": ["type", "document_data"],
+    "properties": {"value": {"type": "integer"}, "source": {"type": "string"}},
+    "required": ["value", "source"],
 }
 
 number_provided_by_bureaux = {
     "type": "object",
-    "properties": {"value": {"type": "number"}, "source": "string"},
-    "required": ["type", "document_data"],
+    "properties": {"value": {"type": "number"}, "source": {"type": "string"}},
+    "required": ["value", "source"],
 }
 
 boolean_provided_by_bureaux = {
     "type": "object",
-    "properties": {"value": {"type": "number"}, "source": "string"},
-    "required": ["type", "document_data"],
+    "properties": {"value": {"type": "boolean"}, "source": {"type": "string"}},
+    "required": ["value", "source"],
 }
 
 document_data_schema = {
@@ -297,7 +297,21 @@ suitability_schema = {
     "type": "object",
     "properties": {
         "metadata": {"type": "object"},
-        "form": {"type": "array", "items": {"type": "object"}},
+        "form": {"type": "array", "items": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "question_id": {"type": "integer"},
+                        "answer": {"type": "string"}
+                    }, "required": [
+                        "question_id",
+                        "answer"
+                        ]
+                }
+            ]
+        }
+    },
         "version": {"type": "integer"},
         "score": {"type": "integer"},
         "profile": {"type": "string"},
@@ -323,8 +337,8 @@ metadata_suitability_schema = {
 
 suitability_form_schema = {
     "type": "object",
-    "properties": {"question_id": {"type": "integer"}, "answer": {"type": "string"}},
-    "required": ["question_id", "answer"],
+    "properties": {},
+    "required": [],
 }
 # Suitability
 ########################################################################################
@@ -414,48 +428,48 @@ schemas = {
         "root.user_registry_data": user_registry_schema,
         "root.user_registry_data.provided_by_user": provided_by_user_schema,
         "root.user_registry_data.provided_by_user.marital": marital_schema,
-        "root.user_registry_data.provided_by_user.spouse": spouse,
+        "root.user_registry_data.provided_by_user.marital.spouse": spouse,
         "root.user_registry_data.provided_by_user.suitability": dtvm_suitability_schema,
         "root.user_registry_data.provided_by_user.third_party_operator": third_party_operator,
-        "root.user_registry_data.provided_by_user.details": detail_schema,
+        "root.user_registry_data.provided_by_user.third_party_operator.details": detail_schema,
         "root.user_registry_data.provided_by_user.us_person": us_person,
-        "root.provided_by_bureaux": provided_by_bureaux_schema,
-        "root.provided_by_bureaux.gender": string_provided_by_bureaux,
-        "root.provided_by_bureaux.birthDate": integer_provided_by_bureaux,
-        "root.provided_by_bureaux.naturalness": string_provided_by_bureaux,
-        "root.provided_by_bureaux.nationality": string_provided_by_bureaux,
-        "root.provided_by_bureaux.mother_name": string_provided_by_bureaux,
-        "root.provided_by_bureaux.identifier_document": identifier_document_schema,
-        "root.provided_by_bureaux.identifier_document.type": string_provided_by_bureaux,
-        "root.provided_by_bureaux.identifier_document.document_data": document_data_schema,
-        "root.provided_by_bureaux.identifier_document.document_data.number": string_provided_by_bureaux,
-        "root.provided_by_bureaux.identifier_document.document_data.date": integer_provided_by_bureaux,
-        "root.provided_by_bureaux.identifier_document.document_data.state": string_provided_by_bureaux,
-        "root.provided_by_bureaux.identifier_document.document_data.issuer": string_provided_by_bureaux,
-        "root.provided_by_bureaux.address": address_schema,
-        "root.provided_by_bureaux.address.street_name": string_provided_by_bureaux,
-        "root.provided_by_bureaux.address.number": integer_provided_by_bureaux,
-        "root.provided_by_bureaux.address.state": string_provided_by_bureaux,
-        "root.provided_by_bureaux.address.city": string_provided_by_bureaux,
-        "root.provided_by_bureaux.address.zipCode": string_provided_by_bureaux,
-        "root.provided_by_bureaux.address.phone_number": string_provided_by_bureaux,
-        "root.provided_by_bureaux.occupation": occupation_schema,
-        "root.provided_by_bureaux.occupation.status": string_provided_by_bureaux,
-        "root.provided_by_bureaux.company": company_schema,
-        "root.provided_by_bureaux.company.name": string_provided_by_bureaux,
-        "root.provided_by_bureaux.company.cpnj": integer_provided_by_bureaux,
-        "root.provided_by_bureaux.assets": assets_schema,
-        "root.provided_by_bureaux.assets.patrimony": number_provided_by_bureaux,
-        "root.provided_by_bureaux.assets.income": number_provided_by_bureaux,
-        "root.provided_by_bureaux.education": education_schema,
-        "root.provided_by_bureaux.education.level": string_provided_by_bureaux,
-        "root.provided_by_bureaux.education.course": string_provided_by_bureaux,
-        "root.provided_by_bureaux.documents_photos": documents_photos_schema,
-        "root.provided_by_bureaux.documents_photos.identifier_document": string_provided_by_bureaux,
-        "root.provided_by_bureaux.documents_photos.address_document": string_provided_by_bureaux,
-        "root.provided_by_bureaux.politically_exposed_person": politically_exposed_person_schema,
-        "root.provided_by_bureaux.politically_exposed_person.is_politically_exposed_person": boolean_provided_by_bureaux,
-        "root.provided_by_bureaux.date_of_acquisition": integer_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux": provided_by_bureaux_schema,
+        "root.user_registry_data.provided_by_bureaux.gender": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.birthDate": integer_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.naturalness": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.nationality": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.mother_name": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.identifier_document": identifier_document_schema,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.type": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.document_data": document_data_schema,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.document_data.number": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.document_data.date": integer_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.document_data.state": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.identifier_document.document_data.issuer": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address": address_schema,
+        "root.user_registry_data.provided_by_bureaux.address.street_name": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address.number": integer_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address.state": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address.city": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address.zipCode": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.address.phone_number": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.occupation": occupation_schema,
+        "root.user_registry_data.provided_by_bureaux.occupation.status": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.occupation.company": company_schema,
+        "root.user_registry_data.provided_by_bureaux.occupation.company.name": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.occupation.company.cpnj": integer_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.assets": assets_schema,
+        "root.user_registry_data.provided_by_bureaux.assets.patrimony": number_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.assets.income": number_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.education": education_schema,
+        "root.user_registry_data.provided_by_bureaux.education.level": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.education.course": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.documents_photos": documents_photos_schema,
+        "root.user_registry_data.provided_by_bureaux.documents_photos.identifier_document": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.documents_photos.address_document": string_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.politically_exposed_person": politically_exposed_person_schema,
+        "root.user_registry_data.provided_by_bureaux.politically_exposed_person.is_politically_exposed_person": boolean_provided_by_bureaux,
+        "root.user_registry_data.provided_by_bureaux.date_of_acquisition": integer_provided_by_bureaux,
     },
     "term_schema": {
         "root": terms_schema,
@@ -465,7 +479,6 @@ schemas = {
     "suitability_schema": {
         "root": suitability_schema,
         "root.metadata": metadata_suitability_schema,
-        "root.form": suitability_form_schema,
     },
     "dtvm_update_user_schema": {
         "root": dtvm_update_user_schema,
