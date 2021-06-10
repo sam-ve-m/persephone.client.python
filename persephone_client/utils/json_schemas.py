@@ -5,7 +5,7 @@ dtvm_user_schema = {
         "metadata": {"type": "object"},
         "user_registry_data": {"type": "object"},
         "create_user_time_stamp": {"type": "integer"},
-        "create_digital_signature_time_stamp": {"type": "string"},
+        "create_digital_signature_time_stamp": {"type": "integer"}
     },
     "required": [
         "metadata",
@@ -37,7 +37,7 @@ provided_by_user_schema = {
         "marital": {"type": "object"},
         "cpf": {"type": "integer"},
         "email": {"type": "string"},
-        "suitability": {"type": "object"},
+        # "suitability": {"type": "object"},
         "can_be_managed_by_third_party_operator": {"type": "boolean"},
         "is_managed_by_third_party_operator": {"type": "boolean"},
         "third_party_operator": {"type": "object"},
@@ -49,7 +49,7 @@ provided_by_user_schema = {
         "marital",
         "cpf",
         "email",
-        "suitability",
+ #       "suitability",
         "can_be_managed_by_third_party_operator",
         "is_managed_by_third_party_operator",
         "third_party_operator",
@@ -98,11 +98,11 @@ dtvm_suitability_schema = {
 third_party_operator = {
     "type": "object",
     "properties": {
-        "isThird_party_operator": {"type": "boolean"},
+        "is_third_party_operator": {"type": "boolean"},
         "details": {"type": "object"},
         "third_party_operator_email": {"type": "string"},
     },
-    "required": ["isThird_party_operator", "details", "third_party_operator_email"],
+    "required": ["is_third_party_operator", "details", "third_party_operator_email"],
 }
 
 us_person = {
@@ -260,16 +260,14 @@ terms_schema = {
         "term_type": {"type": "string"},
         "term_version": {"type": "string"},
         "user_accept": {"type": "boolean"},
-        "term_answer_time_stamp": {"type": "integer"},
-        "term_link": {"type": "string"},
+        "term_answer_time_stamp": {"type": "integer"}
     },
     "required": [
         "metadata",
         "term_type",
         "term_version",
         "user_accept",
-        "term_answer_time_stamp",
-        "term_link",
+        "term_answer_time_stamp"
     ],
 }
 
@@ -313,10 +311,9 @@ suitability_schema = {
         }
     },
         "version": {"type": "integer"},
-        "score": {"type": "integer"},
+        "score": {"type": "number"},
         "profile": {"type": "string"},
-        "create_suitability_time_stamp": {"type": "integer"},
-        "digital_signature_time_stamp": {"type": "integer"},
+        "create_suitability_time_stamp": {"type": "integer"}
     },
     "required": [
         "metadata",
@@ -324,8 +321,7 @@ suitability_schema = {
         "version",
         "score",
         "profile",
-        "create_suitability_time_stamp",
-        "digital_signature_time_stamp",
+        "create_suitability_time_stamp"
     ],
 }
 
@@ -429,7 +425,7 @@ schemas = {
         "root.user_registry_data.provided_by_user": provided_by_user_schema,
         "root.user_registry_data.provided_by_user.marital": marital_schema,
         "root.user_registry_data.provided_by_user.marital.spouse": spouse,
-        "root.user_registry_data.provided_by_user.suitability": dtvm_suitability_schema,
+       # "root.user_registry_data.provided_by_user.suitability": dtvm_suitability_schema,
         "root.user_registry_data.provided_by_user.third_party_operator": third_party_operator,
         "root.user_registry_data.provided_by_user.third_party_operator.details": detail_schema,
         "root.user_registry_data.provided_by_user.us_person": us_person,
