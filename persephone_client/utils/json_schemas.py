@@ -286,7 +286,7 @@ prospect_user_schema = {
         "nick_name": {"type": "string"},
         "create_user_time_stamp": {"type": "integer"},
     },
-    "required": ["user_email", "name", "create_user_time_stamp"],
+    "required": ["user_email", "nick_name", "create_user_time_stamp"],
 }
 # Prospect User
 ########################################################################################
