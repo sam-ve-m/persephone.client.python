@@ -283,7 +283,7 @@ prospect_user_schema = {
     "type": "object",
     "properties": {
         "user_email": {"type": "string"},
-        "name": {"type": "string"},
+        "nick_name": {"type": "string"},
         "create_user_time_stamp": {"type": "integer"},
     },
     "required": ["user_email", "name", "create_user_time_stamp"],
