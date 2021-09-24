@@ -1,6 +1,7 @@
 from persephone_client.interfaces.queue_producer.interface import IQueueProducer
 from json import dumps
 from typing import Optional
+from nidavellir.src.uru import Sindri
 
 
 class QueueProducerService(IQueueProducer):
@@ -20,7 +21,7 @@ class QueueProducerService(IQueueProducer):
             producer.send(
                 topic=topic,
                 partition=partition,
-                value=dumps(payload).encode(),
+                value=dumps(payload, cls=Sindri).encode(),
             )
         except Exception as err:
             if logger:

@@ -1,5 +1,6 @@
 from persephone_client.interfaces.schema_validator.interface import ISchemaValidator
 from persephone_client.services.builder_validator.service import BuilderValidator
+from nidavellir.src.uru import Sindri
 
 
 class SchemaValidatorService(ISchemaValidator):
@@ -20,5 +21,5 @@ class SchemaValidatorService(ISchemaValidator):
             if logger:
                 logger.error("Given schema_key must be str type",exc_info=True)
             return False
-
+        Sindri.dict_to_primitive_types(payload)
         return BuilderValidator.check(validator=validator, payload=payload, schema_key=schema_key, logger=logger)

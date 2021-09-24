@@ -13,6 +13,7 @@ python = "^3.8"
 kafka-python = "^2.0.2"
 python-decouple = "^3.4"
 jsonschema = "^3.2.0"
+nidavellir = "^0.0.1"
 
 
 [tool.poetry.dev-dependencies]
@@ -21,3 +22,7 @@ pytest = "^6.2.4"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "nexus"
+url = "http://nexus:FILL_THIS_WITH_PASSWORD@18.231.147.30/repository/pypi/simple/"
