@@ -36,7 +36,6 @@ class Persephone:
     ) -> bool:
         if self.producer is None:
             return False
-
         if self._validate(
             validator=self.validator, payload=payload, schema_key=schema_key, logger=self.logger
         ):
