@@ -42,16 +42,3 @@ class Persephone:
     @staticmethod
     def _validate(payload: dict, schema: str, logger: any) -> bool:
         return SchemaValidatorController.schema_validator(payload=payload, schema_to_use=schema, logger=logger)
-
-
-if __name__ == '__main__':
-    dic = {
-        "stone_age_id": 'teste',
-        "user_id": "teste",
-        "status": "teste",
-        "cpf": 129192
-    }
-
-    a = Persephone._validate(payload=dic, schema='TableSchema', logger='')
-
-    print(a)
