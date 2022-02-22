@@ -1,14 +1,17 @@
-attrs @ file:///home/afl/.cache/pypoetry/artifacts/1a/aa/39/10d6d07084f186f8cf6963cb033440402ad5088bb94d712239170f2ef6/attrs-21.2.0-py2.py3-none-any.whl
-iniconfig @ file:///home/afl/.cache/pypoetry/artifacts/ac/f9/da/e990ffcd9ec361a68676a5916e391286e1ea5d1b8907ae887e141a71f5/iniconfig-1.1.1-py2.py3-none-any.whl
-jsonschema @ file:///home/afl/.cache/pypoetry/artifacts/8a/0f/f1/4a51263f4c7019004d5abd49f41d94c0eb4618233008d82a629134c337/jsonschema-3.2.0-py2.py3-none-any.whl
-kafka-python @ file:///home/afl/.cache/pypoetry/artifacts/5d/cf/d7/1f9d84898e6c8a7c3b2cc3f4040f41fc924cc69cf6338d0664c8006350/kafka_python-2.0.2-py2.py3-none-any.whl
-packaging @ file:///home/afl/.cache/pypoetry/artifacts/69/b5/74/4884010222ec7d09be9bd10d71316b7c49153ef24103605e4a2650af7c/packaging-20.9-py2.py3-none-any.whl
-persephone-client==0.1.0
-pluggy @ file:///home/afl/.cache/pypoetry/artifacts/9c/e5/0b/2d64d03361a081edeb5d2ec5f286ccf9719587781fbf6822e1b6384c27/pluggy-0.13.1-py2.py3-none-any.whl
-py @ file:///home/afl/.cache/pypoetry/artifacts/6b/b2/2b/e6686e7d0183dbd36bd66921efa3e77ce26260a3671524cd86614290e0/py-1.10.0-py2.py3-none-any.whl
-pyparsing @ file:///home/afl/.cache/pypoetry/artifacts/da/e7/3d/1780282f558e5fd157bf708b28b8ba0d08323ef6bc5b6396139ce38a0b/pyparsing-2.4.7-py2.py3-none-any.whl
-pyrsistent @ file:///home/afl/.cache/pypoetry/artifacts/d8/37/43/5ceed6677fc301784b0e62604a431e293d12c402f4ca588304e916a04d/pyrsistent-0.17.3.tar.gz
-pytest @ file:///home/afl/.cache/pypoetry/artifacts/8a/b9/90/4514a24414e38b20d118ef142b175d429a18dba120914e9e0dffc5fa56/pytest-6.2.4-py3-none-any.whl
-python-decouple @ file:///home/afl/.cache/pypoetry/artifacts/1b/e5/27/523307167b91dbfc6bee9de12a9f893dff4c81fa3aebee42bd64bc9542/python_decouple-3.4-py3-none-any.whl
-six @ file:///home/afl/.cache/pypoetry/artifacts/48/e6/04/8118155ae3ec3a16dd2a213bbf7a7d8a62c596b2e90f73a22c896269f1/six-1.16.0-py2.py3-none-any.whl
-toml @ file:///home/afl/.cache/pypoetry/artifacts/9f/8c/c3/7b4f6778d60f3c9fa11f8fd0e48243bbad25a04975e0a01006b6350594/toml-0.10.2-py2.py3-none-any.whl
+attrs==21.4.0
+importlib-resources==5.4.0
+iniconfig==1.1.1
+kafka-python==2.0.2
+packaging==21.3
+pluggy==1.0.0
+py==1.11.0
+pydantic==1.9.0
+pyparsing==3.0.7
+pyrsistent==0.18.1
+pytest==7.0.1
+python-decouple==3.6
+six==1.16.0
+toml==0.10.2
+tomli==2.0.1
+typing-extensions==4.1.1
+zipp==3.7.0

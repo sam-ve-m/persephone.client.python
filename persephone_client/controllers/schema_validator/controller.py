@@ -3,10 +3,5 @@ from persephone_client.services.schema_validator.service import SchemaValidatorS
 
 class SchemaValidatorController:
     @classmethod
-    def schema_validator(
-        cls, validator: any, payload: dict, schema_key: str, logger: any
-    ) -> bool:
-
-        return SchemaValidatorService.schema_validator(
-            validator=validator, payload=payload, schema_key=schema_key, logger=logger
-        )
+    def schema_validator(cls, payload: dict, schema_to_use: str, logger: any) -> bool:
+        return SchemaValidatorService.schema_validator(payload=payload, schema_to_use=schema_to_use, logger=logger)

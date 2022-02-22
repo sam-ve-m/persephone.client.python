@@ -4,8 +4,5 @@ from abc import ABC, abstractmethod
 class ISchemaValidator(ABC):
     @classmethod
     @abstractmethod
-    def schema_validator(
-        cls, validator: any, payload: dict, schema_key: str, logger: any
-    ) -> bool:
-
+    def schema_validator(cls, payload: dict, schema_to_use: str, logger: any) -> bool:
         pass
