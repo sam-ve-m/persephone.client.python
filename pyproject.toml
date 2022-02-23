@@ -12,8 +12,7 @@ packages = [
 python = "^3.8"
 kafka-python = "^2.0.2"
 python-decouple = "^3.4"
-jsonschema = "^3.2.0"
-nidavellir = "^0.0.1"
+nidavellir = "^0.0.6"
 
 
 [tool.poetry.dev-dependencies]
