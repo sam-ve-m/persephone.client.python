@@ -107,7 +107,7 @@ class ThirdPartyOperator(BaseModel):
 class Spouse(BaseModel):
     spouse_name: constr(min_length=2)
     nationality: constr(min_length=2)
-    cpf: int
+    cpf: constr(min_length=2)
 
 
 class MaritalSchema(BaseModel):
@@ -118,7 +118,7 @@ class MaritalSchema(BaseModel):
 class ProvidedByUserSchema(BaseModel):
     name: constr(min_length=2)
     marital: MaritalSchema
-    cpf: int
+    cpf: constr(min_length=2)
     email: constr(min_length=2)
     can_be_managed_by_third_party_operator: bool
     is_managed_by_third_party_operator: bool
