@@ -1,10 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr
 from typing import Optional
 
 
 class DtvmUpdateStringField(BaseModel):
-    previous_data: str
-    new_data: str
+    previous_data: constr(min_length=2)
+    new_data: constr(min_length=2)
 
 
 class DtvmUpdateIntegerField(BaseModel):
@@ -106,7 +106,7 @@ class DtvmUpdateUserUpdatedData(BaseModel):
 
 
 class DtvmUpdateUserMetadataSchema(BaseModel):
-    user_email: str
+    user_email: constr(min_length=2)
     digital_signature_time_stamp: int
 
 

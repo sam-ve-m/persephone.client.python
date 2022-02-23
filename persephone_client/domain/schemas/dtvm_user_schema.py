@@ -1,25 +1,25 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr
 from typing import Optional
 
 
 class IntegerProvidedByBureaux(BaseModel):
     value: int
-    source: str
+    source: constr(min_length=2)
 
 
 class StringProvidedByBureaux(BaseModel):
-    value: str
-    source: str
+    value: constr(min_length=2)
+    source: constr(min_length=2)
 
 
 class NumberProvidedByBureaux(BaseModel):
     value: float
-    source: str
+    source: constr(min_length=2)
 
 
 class BooleanProvidedByBureaux(BaseModel):
     value: bool
-    source: str
+    source: constr(min_length=2)
 
 
 class PoliticallyExposedPersonSchema(BaseModel):
@@ -95,31 +95,31 @@ class ProvidedByBureauxSchema(BaseModel):
 
 class UsPerson(BaseModel):
     is_us_person: bool
-    us_tin: str
+    us_tin: constr(min_length=2)
 
 
 class ThirdPartyOperator(BaseModel):
     is_third_party_operator: bool
     details: dict
-    third_party_operator_email: str
+    third_party_operator_email: constr(min_length=2)
 
 
 class Spouse(BaseModel):
-    spouse_name: str
-    nationality: str
+    spouse_name: constr(min_length=2)
+    nationality: constr(min_length=2)
     cpf: int
 
 
 class MaritalSchema(BaseModel):
-    status: str
+    status: constr(min_length=2)
     spouse: Spouse
 
 
 class ProvidedByUserSchema(BaseModel):
-    name: str
+    name: constr(min_length=2)
     marital: MaritalSchema
     cpf: int
-    email: str
+    email: constr(min_length=2)
     can_be_managed_by_third_party_operator: bool
     is_managed_by_third_party_operator: bool
     third_party_operator: ThirdPartyOperator
@@ -133,7 +133,7 @@ class UserRegistrySchema(BaseModel):
 
 
 class UserMetadataSchema(BaseModel):
-    user_email: str
+    user_email: constr(min_length=2)
 
 
 class DtvmUserSchema(BaseModel):

@@ -1,20 +1,16 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr, UUID4
 from typing import List
 
 
 class FormList(BaseModel):
     question_id: int
-    answer: str
-
-
-class MetadataSuitabilitySchema(BaseModel):
-    user_email: str
+    answer: constr(min_length=2)
 
 
 class SuitabilitySchema(BaseModel):
-    metadata: MetadataSuitabilitySchema
+    unique_id: UUID4
     form: List[FormList]
     version: int
     score: float
-    profile: str
+    profile: constr(min_length=2)
     create_suitability_time_stamp: int
