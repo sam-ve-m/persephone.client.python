@@ -18,6 +18,9 @@ from persephone_client.domain.schemas.user_set_electronic_signature_schema impor
 from persephone_client.domain.schemas.user_change_or_reset_electronic_signature_schema import (
     UserChangeOrResetElectronicSignatureSchema
 )
+from persephone_client.domain.schemas.create_electronic_signature_session_schema import (
+    CreateElectronicSignatureSessionSchema
+)
 
 
 class ChooseSchema(Enum):
@@ -37,3 +40,4 @@ class ChooseSchema(Enum):
     user_update_register_data_schema = UserUpdateRegisterDataSchema
     user_set_electronic_signature_schema = UserSetElectronicSignatureSchema
     user_change_or_reset_electronic_signature_schema = UserChangeOrResetElectronicSignatureSchema
+    create_electronic_signature_session_schema = CreateElectronicSignatureSessionSchema
