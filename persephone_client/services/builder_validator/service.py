@@ -1,5 +1,5 @@
 from persephone_client.domain.validators.schema_validators import ChooseSchema
-from persephone_client.interfaces.builder_validator.interface import IBuilderValidator
+from persephone_client.core.builder_validator.interface import IBuilderValidator
 from pydantic import ValidationError
 
 

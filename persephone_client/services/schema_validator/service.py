@@ -1,4 +1,4 @@
-from persephone_client.interfaces.schema_validator.interface import ISchemaValidator
+from persephone_client.core.schema_validator import ISchemaValidator
 from persephone_client.services.builder_validator.service import BuilderValidator
 from nidavellir.src.uru import Sindri
 
