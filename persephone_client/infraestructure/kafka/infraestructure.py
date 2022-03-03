@@ -1,16 +1,20 @@
 # Third part
 from aiokafka import AIOKafkaProducer
 
+from persephone_client.infraestructure.env_config import config
+
 
 class KafkaInfrastructure:
 
     producer = None
 
     @classmethod
-    def get_or_create_producer(cls, bootstrap_servers):
+    async def get_or_create_producer(cls):
         if cls.producer is None:
             cls.producer = AIOKafkaProducer(
-                bootstrap_servers=bootstrap_servers,
+                bootstrap_servers=config("PERSEPHONE_KAFKA_BROKERS"),
+                enable_idempotence=True
             )
+            await cls.producer.start()
 
         return cls.producer

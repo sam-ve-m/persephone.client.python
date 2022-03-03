@@ -15,7 +15,7 @@ class PersephoneService(IPersephoneService):
     schema_validator = SchemaValidatorServiceService
 
     @classmethod
-    def send_to_persephone(cls, bootstrap_servers: str, topic: str, partition: int, message: dict, schema_name: str) -> Tuple[bool, PersephoneClientStatus]:
+    async def send_to_persephone(cls, topic: str, partition: int, message: dict, schema_name: str) -> Tuple[bool, PersephoneClientStatus]:
         is_message_sent = False
         try:
             cls.schema_validator.schema_validator(
@@ -23,8 +23,7 @@ class PersephoneService(IPersephoneService):
                 schema_name=schema_name
             )
 
-            is_message_sent = cls.kafka.send_to_persephone(
-                bootstrap_servers=bootstrap_servers,
+            is_message_sent = await cls.kafka.send_to_persephone(
                 topic=topic,
                 partition=partition,
                 message=message
@@ -51,4 +50,3 @@ class PersephoneService(IPersephoneService):
             error_message = f"PersephoneService::send_to_persephone::Exception"
             Gladsheim.error(msg=error_message, stack_level=err, exc_info=True)
             return is_message_sent, PersephoneClientStatus.not_mapped_error.value
-

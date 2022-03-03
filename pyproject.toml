@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "persephone_client"
-version = "0.2.59"
+version = "1.0.0"
 description = "Persephone Log Client"
 authors = ["Anderson Faustino Lima <afl@lionx.com.br>"]
 
@@ -10,15 +10,15 @@ packages = [
 ]
 [tool.poetry.dependencies]
 python = "3.8"
-aiokafka = "0.7.2"
-python-decouple = "3.4"
-nidavellir = "0.1.0"
-pydantic = "1.9.0"
-orjson = "3.6.7"
-etria_logger = "0.1.0"
+aiokafka = "^0.7.2"
+python-decouple = "^3.4"
+nidavellir = "^0.1.0"
+pydantic = "^1.9.0"
+orjson = "^3.6.7"
+etria_logger = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "6.2.4"
+pytest = "^6.2.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -26,4 +26,4 @@ build-backend = "poetry.core.masonry.api"
 
 [[tool.poetry.source]]
 name = "nexus"
-url = "https://backend:dc222fa6-452f-4253-a2fd-a52e7ba2e7e9@nexus.sigame.com.br/repository/pypi/simple/"
+url = "https://{}user}:{password}@nexus.sigame.com.br/repository/pypi/simple/"

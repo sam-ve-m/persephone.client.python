@@ -28,5 +28,5 @@ class MessageValidatorService(IMessageValidatorService):
         if not schema_to_apply:
             raise SchemaNotFound(msg=f"Schema {schema_name} not exists.")
 
-        is_valid_message = MessageValidatorService.__apply_schema(schema_to_apply=schema_to_apply, message=message)
+        is_valid_message = MessageValidatorService.__apply_schema(schema_to_apply=schema_to_apply.value, message=message)
         return is_valid_message

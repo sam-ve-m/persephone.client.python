@@ -23,7 +23,9 @@ class SchemaValidatorServiceService(ISchemaValidatorService):
             raise InvalidSchemaName("Given schema name must not be empty")
 
     @staticmethod
-    def schema_validator(message: dict, schema_name: str) -> bool:
+    def schema_validator(message: dict, schema_name: str):
         message = Sindri.dict_to_primitive_types(message)
         is_valid_message = MessageValidatorService.validate_message(message=message, schema_name=schema_name)
-        return is_valid_message
+
+        if not is_valid_message:
+            raise InvalidMessage(msg=f"Given message must be compatible with schema {schema_name}")

@@ -14,26 +14,28 @@ class PersephoneRepository(IPersephoneRepository):
     infra = KafkaInfrastructure
 
     @classmethod
-    def send_to_persephone(cls, bootstrap_servers: str, topic: str, partition: int, message: dict) -> bool:
-        is_message_sent = False
+    async def send_to_persephone(cls, topic: str, partition: int, message: dict) -> bool:
+        is_message_sent = True
+        record_metadata = None
 
         try:
-            kafka_consumer = cls.infra.get_or_create_producer(bootstrap_servers)
-            dumps(message, default=Sindri.dict_to_primitive_types)
-
-            send_future = await kafka_consumer.send(topic=topic,partition=partition, message=message)
-            is_message_sent = await send_future
+            kafka_producer = await cls.infra.get_or_create_producer()
+            message = dumps(message, default=Sindri.dict_to_primitive_types)
+            record_metadata = await kafka_producer.send_and_wait(topic=topic, partition=partition, value=message)
 
         except KafkaTimeoutError as err:
-            message = f"KafkaRepository::send_to_persephone::KafkaTimeoutError::is_message_sent:{is_message_sent}"
+            message = f"KafkaRepository::send_to_persephone::KafkaTimeoutError::is_message_sent:{is_message_sent}::record metadata:{record_metadata}"
+            is_message_sent = False
             Gladsheim.error(msg=message, stacklevel=err, exc_info=True)
 
         except KafkaError as err:
-            message = f"KafkaRepository::send_to_persephone::KafkaError::is_message_sent:{is_message_sent}"
+            message = f"KafkaRepository::send_to_persephone::KafkaError::is_message_sent:{is_message_sent}::record metadata:{record_metadata}"
+            is_message_sent = False
             Gladsheim.error(msg=message, stacklevel=err, exc_info=True)
 
         except Exception as err:
-            message = f"KafkaRepository::send_to_persephone::Exception::is_message_sent:{is_message_sent}"
+            message = f"KafkaRepository::send_to_persephone::Exception::is_message_sent:{is_message_sent}::record metadata:{record_metadata}"
+            is_message_sent = False
             Gladsheim.error(msg=message, stacklevel=err, exc_info=True)
 
         return is_message_sent
