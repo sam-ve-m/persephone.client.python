@@ -8,5 +8,5 @@ class MistTradeSessionCreate(BaseModel):
     jwt_token_session: str
     message: str
     signature_expire_time: int
-    email: str
+    unique_id: str
     connection_unique_id: int
