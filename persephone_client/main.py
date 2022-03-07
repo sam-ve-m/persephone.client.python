@@ -1,52 +1,26 @@
-from persephone_client.controllers.schema_validator.controller import (
-    SchemaValidatorController,
-)
-from persephone_client.controllers.queue_producer.controller import (
-    QueueProducerController,
-)
-from kafka import KafkaProducer
-from kafka.errors import NoBrokersAvailable
-from jsonschema import validate
+import json
+from typing import Tuple
+
+from persephone_client.domain.enums.status.enum import PersephoneClientStatus
+from persephone_client.services.message_validator.service import MessageValidatorService
+from persephone_client.services.persephone.service import PersephoneService
 
 
 class Persephone:
-    host = None
-    port = None
-
-    def __init__(self, host: str, port: int) -> None:
-        try:
-            self.host = host
-            self.port = port
-            self.producer = KafkaProducer(bootstrap_servers=f"{self.host}:{self.port}")
-            self.validator = validate
-        except NoBrokersAvailable:
-            raise Exception(
-                "I need an instance of kafka server to finish my log registry"
-            )
-
-    def with_dependency_injection(self, validator: any, producer: any):
-        self.validator = validator
-        self.producer = producer
-        return Persephone(host=self.host, port=self.port)
-
-    def run(
-        self, topic: str, partition: int, payload: dict, dict_schemas: dict
-    ) -> bool:
-        if self._validate(
-            validator=self.validator, payload=payload, dict_schemas=dict_schemas
-        ):
-            QueueProducerController.send_to_queue(
-                producer=self.producer,
-                topic=topic,
-                partition=partition,
-                payload=payload,
-            )
-            return True
-
-        return False
 
     @staticmethod
-    def _validate(validator: any, payload: dict, dict_schemas: dict) -> bool:
-        return SchemaValidatorController.schema_validator(
-            validator=validator, payload=payload, dict_schemas=dict_schemas
+    async def send_to_persephone(topic: str, partition: int, message: dict, schema_name: str) -> Tuple[bool, PersephoneClientStatus]:
+        is_message_sent, persephone_client_status = await PersephoneService.send_to_persephone(
+            topic=topic,
+            partition=partition,
+            message=message,
+            schema_name=schema_name
         )
+
+        return is_message_sent, persephone_client_status
+
+
+if __name__ == '__main__':
+    pass
+    # message = {'ip': '127.0.0.1', 'jwt': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOiAxNjc2Njc0MTIwLCAiY3JlYXRlZF9hdCI6IDE2NDUxMzgxMjAuMDc4NTAzLCAic2NvcGUiOiB7InZpZXdfdHlwZSI6ICJkZWZhdWx0IiwgImZlYXR1cmVzIjogWyJkZWZhdWx0IiwgInJlYWx0aW1lIl19LCAidXNlciI6IHsidW5pcXVlX2lkIjogIjk3OGNlMjYzLWUxOGYtNDUyMC05ZDg3LTliZjRmNzA1MjhkOSIsICJuaWNrX25hbWUiOiAiUkFTVEEzIn19.jKQdwge-bFGWTkzXBDjRP0Akw8bK8C2tC4ElIAaELwCzu1CDHrcLq5iXKy3gJm7GJdcoqwZVnY4ujvJxZau-1gtzErPEXxlQ1hC5f6rCKiOvuh0cOkTYdpe4ZxNyJSEm3E8Adak0UDbcw9u1tYQ4D5o3pChFEKhvPiNL7o0xDzhdpZKAsBs07-HAzqF61yTQisGobMz6yYq73jK8f9PvzqXUnKbUPEePILFzkq-eMWH3orr7VAmddCdv62P_WvkEyQev0dqil4faj5PbKw4IY2-z3DI1rrsMKx1dIwr9huWwZMikAUZE1wMVMSdXgIOEx9O5p5x9ixoi2FW9RAL3pA', 'is_authentic': True, 'connection_unique_id': 592801}
+    # MessageValidatorService.validate_message(message=message, schema_name="hermes_session_authenticity")
