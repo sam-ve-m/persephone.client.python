@@ -23,9 +23,9 @@ from persephone_client.domain.schemas.sphinx.create_electronic_signature_session
 )
 
 
-from persephone_client.domain.schemas.hermes.trade_session_create.schema import MistTradeSessionCreate
-from persephone_client.domain.schemas.hermes.session_integrity.schema import HermesSessionIntegrity
-from persephone_client.domain.schemas.hermes.order_session_authenticity.schema import HermesSessionAuthenticity
+from persephone_client.domain.schemas.hermes.mist_trade_session_create.schema import MistTradeSessionCreate
+from persephone_client.domain.schemas.hermes.hermes_session_integrity.schema import HermesSessionIntegrity
+from persephone_client.domain.schemas.hermes.hermes_session_authenticity.schema import HermesSessionAuthenticity
 from persephone_client.domain.schemas.hermes.sent_orders.schema import SentOrders
 from persephone_client.domain.schemas.hermes.report_orders.schema import ReportOrders
 from persephone_client.domain.schemas.hermes.received_orders.schema import ReceivedOrders
