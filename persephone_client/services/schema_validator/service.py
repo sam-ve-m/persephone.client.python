@@ -1,25 +1,31 @@
-from persephone_client.interfaces.schema_validator.interface import ISchemaValidator
-from persephone_client.services.builder_validator.service import BuilderValidator
+from persephone_client.core.services.schema_validator.interface import ISchemaValidatorService
+from persephone_client.domain.exceptions.exception import InvalidMessage, InvalidSchemaName
+from persephone_client.services.message_validator.service import MessageValidatorService
 from nidavellir.src.uru import Sindri
 
 
-class SchemaValidatorService(ISchemaValidator):
+class SchemaValidatorServiceService(ISchemaValidatorService):
 
-    @classmethod
-    def schema_validator(
-        cls, validator: any, payload: dict, schema_key: str, logger: any
-    ) -> bool:
-        if type(payload) != dict:
-            if logger:
-                logger.error("Given message must be dict type", exc_info=True)
-            return False
-        if type(payload) == dict and len(payload) < 1:
-            if logger:
-                logger.error("Given message must not be empty", exc_info=True)
-            return False
-        if type(schema_key) != str:
-            if logger:
-                logger.error("Given schema_key must be str type",exc_info=True)
-            return False
-        Sindri.dict_to_primitive_types(payload)
-        return BuilderValidator.check(validator=validator, payload=payload, schema_key=schema_key, logger=logger)
+    @staticmethod
+    def __validate_message(message: dict):
+        if type(message) != dict:
+            raise InvalidMessage(msg="Given message must be dict type")
+
+        if type(message) == dict and len(message) < 1:
+            raise InvalidMessage(msg="Given message must not be empty")
+
+    @staticmethod
+    def __validate_schema(schema_name: dict):
+        if type(schema_name) != str:
+            raise InvalidSchemaName("Given schema name must be str type")
+
+        if not schema_name:
+            raise InvalidSchemaName("Given schema name must not be empty")
+
+    @staticmethod
+    def schema_validator(message: dict, schema_name: str):
+        message = Sindri.dict_to_primitive_types(message)
+        is_valid_message = MessageValidatorService.validate_message(message=message, schema_name=schema_name)
+
+        if not is_valid_message:
+            raise InvalidMessage(msg=f"Given message must be compatible with schema {schema_name}")
