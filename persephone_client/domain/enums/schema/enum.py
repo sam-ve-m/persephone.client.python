@@ -23,7 +23,16 @@ from persephone_client.domain.schemas.sphinx.create_electronic_signature_session
 )
 
 
+from persephone_client.domain.schemas.hermes.trade_session_create.schema import MistTradeSessionCreate
+from persephone_client.domain.schemas.hermes.session_integrity.schema import HermesSessionIntegrity
+from persephone_client.domain.schemas.hermes.order_session_authenticity.schema import HermesSessionAuthenticity
+from persephone_client.domain.schemas.hermes.sent_orders.schema import SentOrders
+from persephone_client.domain.schemas.hermes.report_orders.schema import ReportOrders
+from persephone_client.domain.schemas.hermes.received_orders.schema import ReceivedOrders
+
+
 class ChooseSchema(Enum):
+    # SPHINX
     dtvm_user_schema = DtvmUserSchema
     dtvm_update_user_schema = DtvmUpdateUserSchema
     prospect_user_schema = ProspectUserSchema
@@ -41,3 +50,11 @@ class ChooseSchema(Enum):
     user_set_electronic_signature_schema = UserSetElectronicSignatureSchema
     user_change_or_reset_electronic_signature_schema = UserChangeOrResetElectronicSignatureSchema
     create_electronic_signature_session_schema = CreateElectronicSignatureSessionSchema
+
+    # HERMES
+    hermes_session_integrity = HermesSessionIntegrity
+    hermes_session_authenticity = HermesSessionAuthenticity
+    mist_trade_session_create = MistTradeSessionCreate
+    sent_orders = SentOrders
+    report_orders = ReportOrders
+    received_orders = ReceivedOrders
