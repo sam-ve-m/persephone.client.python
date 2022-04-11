@@ -9,7 +9,7 @@ packages = [
     { include = "persephone_client/**/*.py" },
 ]
 [tool.poetry.dependencies]
-python = "3.8"
+python = "^3.8"
 aiokafka = "^0.7.2"
 python-decouple = "^3.4"
 nidavellir = "^0.1.0"
