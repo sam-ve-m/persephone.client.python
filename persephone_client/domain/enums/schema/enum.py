@@ -9,7 +9,6 @@ from persephone_client.domain.schemas.sphinx.term.schema import TermsSchema
 from persephone_client.domain.schemas.sphinx.user_authentication.schema import UserAuthenticationSchema
 from persephone_client.domain.schemas.sphinx.user_thebes_hall.schema import UserThebesHallSchema
 from persephone_client.domain.schemas.sphinx.user_logout.schema import UserLogoutSchema
-from persephone_client.domain.schemas.sphinx.signed_term.schema import SignedTermSchema
 from persephone_client.domain.schemas.sphinx.user_identifier_data.schema import UserIdentifierDataSchema
 from persephone_client.domain.schemas.sphinx.user_selfie.schema import UserSelfieSchema
 from persephone_client.domain.schemas.sphinx.user_complementary_data.schema import UserComplementaryDataSchema
@@ -21,6 +20,12 @@ from persephone_client.domain.schemas.sphinx.user_change_or_reset_electronic_sig
 from persephone_client.domain.schemas.sphinx.create_electronic_signature_session.schema import (
     CreateElectronicSignatureSessionSchema
 )
+from persephone_client.domain.schemas.sphinx.user_document.schema import UserDocumentSchema
+from persephone_client.domain.schemas.sphinx.user_politically_exposed_us.schema import UserPoliticallyExposedUsSchema
+from persephone_client.domain.schemas.sphinx.user_exchange_member_us.schema import UserExchangeMemberUsSchema
+from persephone_client.domain.schemas.sphinx.user_time_experience_us.schema import UserTimeExperienceUsSchema
+from persephone_client.domain.schemas.sphinx.user_company_director_us.schema import UserCompanyDirectorUsSchema
+from persephone_client.domain.schemas.sphinx.signed_term.schema import SignedTermSchema
 
 
 from persephone_client.domain.schemas.hermes.mist_trade_session_create.schema import MistTradeSessionCreate
@@ -42,7 +47,6 @@ class ChooseSchema(Enum):
     user_authentication_schema = UserAuthenticationSchema
     user_thebes_hall_schema = UserThebesHallSchema
     user_logout_schema = UserLogoutSchema
-    signed_term_schema = SignedTermSchema
     user_identifier_data_schema = UserIdentifierDataSchema
     user_selfie_schema = UserSelfieSchema
     user_complementary_data_schema = UserComplementaryDataSchema
@@ -50,6 +54,12 @@ class ChooseSchema(Enum):
     user_set_electronic_signature_schema = UserSetElectronicSignatureSchema
     user_change_or_reset_electronic_signature_schema = UserChangeOrResetElectronicSignatureSchema
     create_electronic_signature_session_schema = CreateElectronicSignatureSessionSchema
+    user_document_schema = UserDocumentSchema
+    user_politically_exposed_us_schema = UserPoliticallyExposedUsSchema
+    user_exchange_member_us_schema = UserExchangeMemberUsSchema
+    user_time_experience_us_schema = UserTimeExperienceUsSchema
+    user_company_director_us_schema = UserCompanyDirectorUsSchema
+    signed_term_schema = SignedTermSchema
 
     # HERMES
     hermes_session_integrity = HermesSessionIntegrity
