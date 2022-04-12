@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "persephone_client"
-version = "1.1.2"
+version = "1.2.0"
 description = "Persephone Log Client"
 authors = ["Igor Luciano Magro <ilm@lionx.com.br>, Anderson Faustino Lima <afl@lionx.com.br>"]
 
@@ -26,4 +26,4 @@ build-backend = "poetry.core.masonry.api"
 
 [[tool.poetry.source]]
 name = "nexus"
-url = "https://{}user}:{password}@nexus.sigame.com.br/repository/pypi/simple/"
+url = "https://nexus.sigame.com.br/repository/pypi/simple/"
