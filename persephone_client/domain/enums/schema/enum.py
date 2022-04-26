@@ -26,7 +26,9 @@ from persephone_client.domain.schemas.sphinx.user_exchange_member_us.schema impo
 from persephone_client.domain.schemas.sphinx.user_time_experience_us.schema import UserTimeExperienceUsSchema
 from persephone_client.domain.schemas.sphinx.user_company_director_us.schema import UserCompanyDirectorUsSchema
 from persephone_client.domain.schemas.sphinx.signed_term.schema import SignedTermSchema
-
+from persephone_client.domain.schemas.sphinx.user_tax_residences_us.schema import UserTaxResidencesUsSchema
+from persephone_client.domain.schemas.sphinx.user_w8_form_confirmation_us.schema import UserW8FormConfirmationUsSchema
+from persephone_client.domain.schemas.sphinx.user_employ_form.schema import UserEmployFormSchema
 
 from persephone_client.domain.schemas.hermes.mist_trade_session_create.schema import MistTradeSessionCreate
 from persephone_client.domain.schemas.hermes.hermes_session_integrity.schema import HermesSessionIntegrity
@@ -60,6 +62,9 @@ class ChooseSchema(Enum):
     user_time_experience_us_schema = UserTimeExperienceUsSchema
     user_company_director_us_schema = UserCompanyDirectorUsSchema
     signed_term_schema = SignedTermSchema
+    user_tax_residences_us_schema = UserTaxResidencesUsSchema
+    user_w8_form_confirmation_us_schema = UserW8FormConfirmationUsSchema
+    user_employ_form = UserEmployFormSchema
 
     # HERMES
     hermes_session_integrity = HermesSessionIntegrity
