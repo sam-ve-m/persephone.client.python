@@ -6,7 +6,6 @@ kafka-python @ file:///home/igormagro/.cache/pypoetry/artifacts/5d/cf/d7/1f9d848
 nidavellir @ file:///home/igormagro/.cache/pypoetry/artifacts/f3/6b/bd/c82050f2cd9818f91b8b2ab3577c48eb895dd146306a5624cc4ac9083e/nidavellir-0.1.0-py3-none-any.whl
 orjson @ file:///home/igormagro/.cache/pypoetry/artifacts/fd/3d/dd/88c2f06d22583de1255ef5f9e2b79c26d803c1912028a4ed2859b2e733/orjson-3.6.7-cp38-cp38-manylinux_2_24_x86_64.whl
 packaging @ file:///home/igormagro/.cache/pypoetry/artifacts/7f/d5/4c/1d3c4776012fc0bbe1f86e69bde2c5e36d2d32caa2e4845ac1fc08ab3f/packaging-21.3-py3-none-any.whl
-persephone-client==0.2.59
 pluggy @ file:///home/igormagro/.cache/pypoetry/artifacts/9c/e5/0b/2d64d03361a081edeb5d2ec5f286ccf9719587781fbf6822e1b6384c27/pluggy-0.13.1-py2.py3-none-any.whl
 py @ file:///home/igormagro/.cache/pypoetry/artifacts/ab/b4/c3/a3971fd0d6ab5a2e40a43ad7b809005422d7cf333f7be6ccdfe9002e1b/py-1.11.0-py2.py3-none-any.whl
 pydantic @ file:///home/igormagro/.cache/pypoetry/artifacts/98/35/5c/34da00fdd0cfe3b76503325a96ea4d2313ceb365e3e522d00d9b39cf7d/pydantic-1.9.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
