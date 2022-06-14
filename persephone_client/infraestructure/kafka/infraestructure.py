@@ -13,7 +13,8 @@ class KafkaInfrastructure:
         if cls.producer is None:
             cls.producer = AIOKafkaProducer(
                 bootstrap_servers=config("PERSEPHONE_KAFKA_BROKERS"),
-                enable_idempotence=True
+                enable_idempotence=True,
+                acks=-1
             )
             await cls.producer.start()
 
