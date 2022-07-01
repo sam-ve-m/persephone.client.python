@@ -37,6 +37,12 @@ from persephone_client.domain.schemas.hermes.sent_orders.schema import SentOrder
 from persephone_client.domain.schemas.hermes.report_orders.schema import ReportOrders
 from persephone_client.domain.schemas.hermes.received_orders.schema import ReceivedOrders
 
+from persephone_client.domain.schemas.ebisu import (
+    RegisterClientBankAccount,
+    UpdateUserBankAccounts,
+    DeleteClientBankAccount,
+)
+
 
 class ChooseSchema(Enum):
     # SPHINX
@@ -73,3 +79,8 @@ class ChooseSchema(Enum):
     sent_orders = SentOrders
     report_orders = ReportOrders
     received_orders = ReceivedOrders
+
+    # EBISU
+    register_client_bank_account = RegisterClientBankAccount
+    update_client_bank_account = UpdateUserBankAccounts
+    delete_client_bank_account = DeleteClientBankAccount
