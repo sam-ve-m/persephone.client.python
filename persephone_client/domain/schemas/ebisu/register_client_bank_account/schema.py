@@ -6,7 +6,6 @@ from persephone_client.domain.schemas.common.device_info import DeviceInformatio
 
 
 class BankAccounts(BaseModel):
-    cpf: str
     bank: str
     account_type: str
     agency: str
