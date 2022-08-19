@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "persephone_client"
-version = "1.4.2"
+version = "1.5.0"
 description = "Persephone Log Client"
 authors = ["Igor Luciano Magro <ilm@lionx.com.br>, Anderson Faustino Lima <afl@lionx.com.br>"]
 
