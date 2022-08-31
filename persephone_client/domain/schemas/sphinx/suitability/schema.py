@@ -12,4 +12,3 @@ class SuitabilitySchema(BaseModel):
     version: int
     score: float
     profile: constr(min_length=2)
-    create_suitability_time_stamp: int
