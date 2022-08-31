@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Tuple
 
 from persephone_client.domain.enums.status.enum import PersephoneClientStatus
@@ -23,7 +22,7 @@ class PersephoneService(IPersephoneService):
                 message=message,
                 schema_name=schema_name
             )
-            message["created_at"] = datetime.now().timestamp()  # TODO: Remover para implementar nos esquemas como campo default de um schema pai
+
             is_message_sent = await cls.kafka.send_to_persephone(
                 topic=topic,
                 partition=partition,

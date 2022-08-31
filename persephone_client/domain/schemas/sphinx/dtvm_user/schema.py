@@ -140,4 +140,5 @@ class DtvmUserSchema(BaseModel):
     metadata: UserMetadataSchema
     user_registry_data: UserRegistrySchema
     create_user_time_stamp: int
+    create_digital_signature_time_stamp: int
 

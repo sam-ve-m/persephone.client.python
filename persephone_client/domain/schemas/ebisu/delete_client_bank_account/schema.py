@@ -11,3 +11,4 @@ class DeleteClientBankAccount(BaseModel):
     bank_account: BankAccount
     unique_id: UUID4
     device_info: DeviceInformationOptional
+    _created_at: datetime
