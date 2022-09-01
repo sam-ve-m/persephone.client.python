@@ -7,6 +7,7 @@ from persephone_client.domain.schemas.sphinx.suitability.schema import Suitabili
 from persephone_client.domain.schemas.sphinx.table.schema import TableSchema
 from persephone_client.domain.schemas.sphinx.term.schema import TermsSchema
 from persephone_client.domain.schemas.sphinx.user_authentication.schema import UserAuthenticationSchema
+from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
 from persephone_client.domain.schemas.sphinx.user_thebes_hall.schema import UserThebesHallSchema
 from persephone_client.domain.schemas.sphinx.user_logout.schema import UserLogoutSchema
 from persephone_client.domain.schemas.sphinx.user_identifier_data.schema import UserIdentifierDataSchema
@@ -71,6 +72,7 @@ class ChooseSchema(Enum):
     user_tax_residences_us_schema = UserTaxResidencesUsSchema
     user_w8_form_confirmation_us_schema = UserW8FormConfirmationUsSchema
     user_employ_form = UserEmployFormSchema
+    user_exchange_account_status = UserExchangeAccountStatus
 
     # HERMES
     hermes_session_integrity = HermesSessionIntegrity

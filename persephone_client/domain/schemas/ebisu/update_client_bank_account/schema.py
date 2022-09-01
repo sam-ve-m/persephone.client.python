@@ -17,4 +17,3 @@ class UpdateUserBankAccounts(BaseModel):
     bank_account: BankAccounts
     unique_id: UUID4
     device_info: DeviceInformationOptional
-    _created_at: datetime
