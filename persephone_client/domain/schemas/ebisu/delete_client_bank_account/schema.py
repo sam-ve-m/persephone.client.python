@@ -8,6 +8,6 @@ class BankAccount(BaseModel):
 
 
 class DeleteClientBankAccount(BaseModel):
-    bank_account: BankAccount
     unique_id: UUID4
+    bank_account: BankAccount
     device_info: DeviceInformationOptional

@@ -16,6 +16,6 @@ class BankAccounts(BaseModel):
 
 
 class RegisterClientBankAccount(BaseModel):
-    bank_account: BankAccounts
     unique_id: UUID4
+    bank_account: BankAccounts
     device_info: DeviceInformationOptional
