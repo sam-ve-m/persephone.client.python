@@ -1,12 +1,18 @@
 from enum import Enum
 
+from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
+from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
+from persephone_client.domain.schemas.sphinx.score_validation_status.schema import ScoreValidationStatus
+from persephone_client.domain.schemas.sphinx.user_dw_account.schema import UserDwAccount
+from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
+
 from persephone_client.domain.schemas.sphinx.dtvm_user.schema import DtvmUserSchema
 from persephone_client.domain.schemas.sphinx.dtvm_update_user.schema import DtvmUpdateUserSchema
 from persephone_client.domain.schemas.sphinx.prospect_user.schema import ProspectUserSchema
 from persephone_client.domain.schemas.sphinx.suitability.schema import SuitabilitySchema
 from persephone_client.domain.schemas.sphinx.table.schema import TableSchema
 from persephone_client.domain.schemas.sphinx.user_authentication.schema import UserAuthenticationSchema
-from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
+from persephone_client.domain.schemas.sphinx.user_exchange_account.schema import UserExchangeAccount
 from persephone_client.domain.schemas.sphinx.user_thebes_hall.schema import UserThebesHallSchema
 from persephone_client.domain.schemas.sphinx.user_logout.schema import UserLogoutSchema
 from persephone_client.domain.schemas.sphinx.user_identifier_data.schema import UserIdentifierDataSchema
@@ -70,7 +76,12 @@ class ChooseSchema(Enum):
     user_tax_residences_us_schema = UserTaxResidencesUsSchema
     user_w8_form_confirmation_us_schema = UserW8FormConfirmationUsSchema
     user_employ_form = UserEmployFormSchema
+    user_exchange_account = UserExchangeAccount
     user_exchange_account_status = UserExchangeAccountStatus
+    user_dw_account = UserDwAccount
+    cpf_validation = CpfValidation
+    cpf_validation_status = CpfValidationStatus
+    score_validation_status = ScoreValidationStatus
 
     # HERMES
     hermes_session_integrity = HermesSessionIntegrity

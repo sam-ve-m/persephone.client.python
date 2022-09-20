@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class UserExchangeAccountStatus(BaseModel):
+class CpfValidationStatus(BaseModel):
     unique_id: str
     status: str
