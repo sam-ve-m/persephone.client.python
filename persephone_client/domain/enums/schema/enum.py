@@ -3,7 +3,6 @@ from enum import Enum
 from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
 from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
 from persephone_client.domain.schemas.sphinx.score_validation_status.schema import ScoreValidationStatus
-from persephone_client.domain.schemas.sphinx.user_dw_account.schema import UserDwAccount
 from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
 
 from persephone_client.domain.schemas.sphinx.dtvm_user.schema import DtvmUserSchema
@@ -78,7 +77,6 @@ class ChooseSchema(Enum):
     user_employ_form = UserEmployFormSchema
     user_exchange_account = UserExchangeAccount
     user_exchange_account_status = UserExchangeAccountStatus
-    user_dw_account = UserDwAccount
     cpf_validation = CpfValidation
     cpf_validation_status = CpfValidationStatus
     score_validation_status = ScoreValidationStatus
