@@ -2,6 +2,7 @@ from enum import Enum
 
 from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
 from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
+from persephone_client.domain.schemas.sphinx.picpay_user_data.schema import PicpayUserData
 from persephone_client.domain.schemas.sphinx.score_validation.schema import ScoreValidation
 from persephone_client.domain.schemas.sphinx.score_validation_status.schema import ScoreValidationStatus
 from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
@@ -82,6 +83,7 @@ class ChooseSchema(Enum):
     cpf_validation_status = CpfValidationStatus
     score_validation = ScoreValidation
     score_validation_status = ScoreValidationStatus
+    picpay_user_data = PicpayUserData
 
     # HERMES
     hermes_session_integrity = HermesSessionIntegrity
