@@ -8,3 +8,5 @@ class ScoreValidation(BaseModel):
     gender: str
     mother_name: str
     nationality: int
+    is_politically_exposed_person: bool
+    is_correlated_to_politically_exposed_person: bool
