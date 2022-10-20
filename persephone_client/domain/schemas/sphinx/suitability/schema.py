@@ -2,8 +2,8 @@ from pydantic import BaseModel, constr, UUID4, conlist
 
 
 class FormList(BaseModel):
-    question_id: int
-    answer: constr(min_length=2)
+    question_order_id: int
+    answer_option_id: int
 
 
 class SuitabilitySchema(BaseModel):
@@ -11,5 +11,4 @@ class SuitabilitySchema(BaseModel):
     form: conlist(item_type=FormList, min_items=1)
     version: int
     score: float
-    profile: constr(min_length=2)
-    create_suitability_time_stamp: int
+    profile: int
