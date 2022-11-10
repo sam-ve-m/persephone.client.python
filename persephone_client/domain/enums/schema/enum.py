@@ -50,6 +50,7 @@ from persephone_client.domain.schemas.ebisu import (
     UpdateUserBankAccounts,
     DeleteClientBankAccount,
 )
+from persephone_client.domain.schemas.mapinguari.user_update.schema import MapinguariUserUpdate
 
 
 class ChooseSchema(Enum):
@@ -99,3 +100,6 @@ class ChooseSchema(Enum):
     register_client_bank_account = RegisterClientBankAccount
     update_client_bank_account = UpdateUserBankAccounts
     delete_client_bank_account = DeleteClientBankAccount
+
+    # MAPINGUARI
+    mapinguari_user_update = MapinguariUserUpdate
