@@ -1,16 +1,21 @@
-aiokafka @ file:///home/igormagro/.cache/pypoetry/artifacts/e4/4c/7d/9ef2831847925ea25d6ad290fe38744c2f078ac26eff8c9d1499e7d6da/aiokafka-0.7.2-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
-attrs @ file:///home/igormagro/.cache/pypoetry/artifacts/9a/27/ab/6895b786f345452394b42c1fdbe863803d0396e675b632c01cb13cad92/attrs-21.4.0-py2.py3-none-any.whl
-etria-logger @ file:///home/igormagro/.cache/pypoetry/artifacts/d3/97/c3/6ffc7b29c6517de18a8480091b1a8a37dc4d9e4a5a5efa4ef0a78d076e/etria_logger-0.1.0-py3-none-any.whl
-iniconfig @ file:///home/igormagro/.cache/pypoetry/artifacts/ac/f9/da/e990ffcd9ec361a68676a5916e391286e1ea5d1b8907ae887e141a71f5/iniconfig-1.1.1-py2.py3-none-any.whl
-kafka-python @ file:///home/igormagro/.cache/pypoetry/artifacts/5d/cf/d7/1f9d84898e6c8a7c3b2cc3f4040f41fc924cc69cf6338d0664c8006350/kafka_python-2.0.2-py2.py3-none-any.whl
-nidavellir @ file:///home/igormagro/.cache/pypoetry/artifacts/f3/6b/bd/c82050f2cd9818f91b8b2ab3577c48eb895dd146306a5624cc4ac9083e/nidavellir-0.1.0-py3-none-any.whl
-orjson @ file:///home/igormagro/.cache/pypoetry/artifacts/fd/3d/dd/88c2f06d22583de1255ef5f9e2b79c26d803c1912028a4ed2859b2e733/orjson-3.6.7-cp38-cp38-manylinux_2_24_x86_64.whl
-packaging @ file:///home/igormagro/.cache/pypoetry/artifacts/7f/d5/4c/1d3c4776012fc0bbe1f86e69bde2c5e36d2d32caa2e4845ac1fc08ab3f/packaging-21.3-py3-none-any.whl
-pluggy @ file:///home/igormagro/.cache/pypoetry/artifacts/9c/e5/0b/2d64d03361a081edeb5d2ec5f286ccf9719587781fbf6822e1b6384c27/pluggy-0.13.1-py2.py3-none-any.whl
-py @ file:///home/igormagro/.cache/pypoetry/artifacts/ab/b4/c3/a3971fd0d6ab5a2e40a43ad7b809005422d7cf333f7be6ccdfe9002e1b/py-1.11.0-py2.py3-none-any.whl
-pydantic @ file:///home/igormagro/.cache/pypoetry/artifacts/98/35/5c/34da00fdd0cfe3b76503325a96ea4d2313ceb365e3e522d00d9b39cf7d/pydantic-1.9.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-pyparsing @ file:///home/igormagro/.cache/pypoetry/artifacts/8a/67/7c/c21f632fb8255d9fc3882ed4548b0270011ef2a160a6031635274760a2/pyparsing-3.0.7-py3-none-any.whl
-pytest @ file:///home/igormagro/.cache/pypoetry/artifacts/8a/b9/90/4514a24414e38b20d118ef142b175d429a18dba120914e9e0dffc5fa56/pytest-6.2.4-py3-none-any.whl
-python-decouple @ file:///home/igormagro/.cache/pypoetry/artifacts/1b/e5/27/523307167b91dbfc6bee9de12a9f893dff4c81fa3aebee42bd64bc9542/python_decouple-3.4-py3-none-any.whl
-toml @ file:///home/igormagro/.cache/pypoetry/artifacts/9f/8c/c3/7b4f6778d60f3c9fa11f8fd0e48243bbad25a04975e0a01006b6350594/toml-0.10.2-py2.py3-none-any.whl
-typing_extensions @ file:///home/igormagro/.cache/pypoetry/artifacts/d8/15/d9/af7ec814ed6e1c696c44ca3bfff21d29263f6bcf7f23801bddca78b3c7/typing_extensions-4.1.1-py3-none-any.whl
+--extra-index-url https://nexus.sigame.com.br/repository/pypi/simple
+
+aiokafka==0.7.2
+atomicwrites==1.4.1; python_version >= "3.6" and python_full_version < "3.0.0" and sys_platform == "win32" or sys_platform == "win32" and python_version >= "3.6" and python_full_version >= "3.4.0"
+attrs==22.1.0; python_version >= "3.6"
+colorama==0.4.6; python_version >= "3.6" and python_full_version < "3.0.0" and sys_platform == "win32" or sys_platform == "win32" and python_version >= "3.6" and python_full_version >= "3.7.0"
+etria-logger==0.1.11; python_version >= "3.8" and python_version < "4.0"
+iniconfig==1.1.1; python_version >= "3.6"
+kafka-python==2.0.2
+nidavellir==0.1.0; python_version >= "3.8" and python_version < "4.0"
+orjson==3.8.1; python_version >= "3.7"
+packaging==21.3; python_version >= "3.6"
+pluggy==1.0.0; python_version >= "3.6"
+py==1.11.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.6"
+pydantic==1.10.2; python_version >= "3.7"
+pyparsing==3.0.9; python_full_version >= "3.6.8" and python_version >= "3.6"
+pytest==6.2.5; python_version >= "3.6"
+python-decouple==3.6
+python-json-logger==2.0.4; python_version >= "3.8" and python_version < "4.0"
+toml==0.10.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
+typing-extensions==4.4.0; python_version >= "3.7"
