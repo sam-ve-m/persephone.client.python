@@ -9,5 +9,7 @@ class BankAccount(BaseModel):
 
 class DeleteClientBankAccount(BaseModel):
     unique_id: UUID4
+    device_id: str
+    device_info: dict
     bank_account: BankAccount
     device_info: DeviceInformationOptional

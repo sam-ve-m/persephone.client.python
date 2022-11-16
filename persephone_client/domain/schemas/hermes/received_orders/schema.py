@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 class ReceivedOrders(BaseModel):
     ip: str
+    device_id: str
+    device_info: dict
     jwt: str
     jwt_token_session: str
     request: dict
