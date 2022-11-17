@@ -111,6 +111,8 @@ class DtvmUpdateUserMetadataSchema(BaseModel):
 
 
 class DtvmUpdateUserSchema(BaseModel):
+    device_id: str
+    device_info: dict
     metadata: DtvmUpdateUserMetadataSchema
     updated_user_data: DtvmUpdateUserUpdatedData
     validate_user_time_stamp: int

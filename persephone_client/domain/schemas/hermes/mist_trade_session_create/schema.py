@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 class MistTradeSessionCreate(BaseModel):
     ip: str
+    device_id: str
+    device_info: dict
     jwt: str
     created: bool
     jwt_token_session: str

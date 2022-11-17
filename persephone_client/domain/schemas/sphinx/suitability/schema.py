@@ -8,6 +8,8 @@ class FormList(BaseModel):
 
 class SuitabilitySchema(BaseModel):
     unique_id: UUID4
+    device_id: str
+    device_info: dict
     form: conlist(item_type=FormList, min_items=1)
     version: int
     score: float
