@@ -9,5 +9,7 @@ class MistSessionSchema(BaseModel):
 
 class CreateElectronicSignatureSessionSchema(BaseModel):
     unique_id: UUID4
+    device_id: str
+    device_info: dict
     mist_session: MistSessionSchema
     allowed: bool

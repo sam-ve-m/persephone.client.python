@@ -137,6 +137,8 @@ class UserMetadataSchema(BaseModel):
 
 
 class DtvmUserSchema(BaseModel):
+    device_id: str
+    device_info: dict
     metadata: UserMetadataSchema
     user_registry_data: UserRegistrySchema
     create_user_time_stamp: int

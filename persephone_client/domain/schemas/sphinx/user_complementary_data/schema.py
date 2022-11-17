@@ -15,4 +15,6 @@ class MaritalSchema(BaseModel):
 
 class UserComplementaryDataSchema(BaseModel):
     unique_id: UUID4
+    device_id: str
+    device_info: dict
     marital: MaritalSchema
