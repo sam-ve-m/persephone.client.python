@@ -1,4 +1,3 @@
-from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -13,5 +12,5 @@ class ExchangeProposalPreExecution(BaseModel):
     exchange_proposal_value: str
     balance_country: str
     operation_type: str
-    next_d2: datetime
+    next_d2: float
     token: str
