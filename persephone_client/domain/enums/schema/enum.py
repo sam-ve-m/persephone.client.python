@@ -17,7 +17,6 @@ from persephone_client.domain.schemas.sphinx.dtvm_user.schema import DtvmUserSch
 from persephone_client.domain.schemas.sphinx.dtvm_update_user.schema import DtvmUpdateUserSchema
 from persephone_client.domain.schemas.sphinx.prospect_user.schema import ProspectUserSchema
 from persephone_client.domain.schemas.sphinx.suitability.schema import SuitabilitySchema
-from persephone_client.domain.schemas.sphinx.table.schema import TableSchema
 from persephone_client.domain.schemas.sphinx.user_authentication.schema import UserAuthenticationSchema
 from persephone_client.domain.schemas.sphinx.user_exchange_account.schema import UserExchangeAccount
 from persephone_client.domain.schemas.sphinx.user_thebes_hall.schema import UserThebesHallSchema
@@ -63,7 +62,6 @@ class ChooseSchema(Enum):
     dtvm_update_user_schema = DtvmUpdateUserSchema
     prospect_user_schema = ProspectUserSchema
     suitability_schema = SuitabilitySchema
-    table_schema = TableSchema
     user_authentication_schema = UserAuthenticationSchema
     user_thebes_hall_schema = UserThebesHallSchema
     user_logout_schema = UserLogoutSchema
