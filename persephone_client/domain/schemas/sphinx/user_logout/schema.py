@@ -6,4 +6,3 @@ class UserLogoutSchema(BaseModel):
     device_id: str
     device_info: dict
     jwt: constr(min_length=2)
-    device_information: dict
