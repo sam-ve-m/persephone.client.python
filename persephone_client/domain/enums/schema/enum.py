@@ -8,7 +8,7 @@ from persephone_client.domain.schemas.ebisu.exchange_proposal_simulation.schema 
 from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
 from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
 from persephone_client.domain.schemas.sphinx.picpay_user_data.schema import PicpayUserData
-from persephone_client.domain.schemas.sphinx.pld.schema import Pld
+from persephone_client.domain.schemas.regis.pld.schema import Pld
 from persephone_client.domain.schemas.sphinx.score_validation.schema import ScoreValidation
 from persephone_client.domain.schemas.sphinx.score_validation_status.schema import ScoreValidationStatus
 from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
