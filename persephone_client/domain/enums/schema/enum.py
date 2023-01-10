@@ -1,9 +1,14 @@
 from enum import Enum
 
+from persephone_client.domain.schemas.ebisu.cash_flow_withdrawal_to_external_bank.schema import \
+    CashFlowWithdrawalToExternalBank
+from persephone_client.domain.schemas.ebisu.exchange_proposal_execution.schema import ExchangeProposalExecution
+from persephone_client.domain.schemas.ebisu.exchange_proposal_pre_execution.schema import ExchangeProposalPreExecution
+from persephone_client.domain.schemas.ebisu.exchange_proposal_simulation.schema import ExchangeProposalSimulation
 from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
 from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
 from persephone_client.domain.schemas.sphinx.picpay_user_data.schema import PicpayUserData
-from persephone_client.domain.schemas.sphinx.pld.schema import Pld
+from persephone_client.domain.schemas.regis.pld.schema import Pld
 from persephone_client.domain.schemas.sphinx.score_validation.schema import ScoreValidation
 from persephone_client.domain.schemas.sphinx.score_validation_status.schema import ScoreValidationStatus
 from persephone_client.domain.schemas.sphinx.user_exchange_account_status.schema import UserExchangeAccountStatus
@@ -12,7 +17,6 @@ from persephone_client.domain.schemas.sphinx.dtvm_user.schema import DtvmUserSch
 from persephone_client.domain.schemas.sphinx.dtvm_update_user.schema import DtvmUpdateUserSchema
 from persephone_client.domain.schemas.sphinx.prospect_user.schema import ProspectUserSchema
 from persephone_client.domain.schemas.sphinx.suitability.schema import SuitabilitySchema
-from persephone_client.domain.schemas.sphinx.table.schema import TableSchema
 from persephone_client.domain.schemas.sphinx.user_authentication.schema import UserAuthenticationSchema
 from persephone_client.domain.schemas.sphinx.user_exchange_account.schema import UserExchangeAccount
 from persephone_client.domain.schemas.sphinx.user_thebes_hall.schema import UserThebesHallSchema
@@ -59,7 +63,6 @@ class ChooseSchema(Enum):
     dtvm_update_user_schema = DtvmUpdateUserSchema
     prospect_user_schema = ProspectUserSchema
     suitability_schema = SuitabilitySchema
-    table_schema = TableSchema
     user_authentication_schema = UserAuthenticationSchema
     user_thebes_hall_schema = UserThebesHallSchema
     user_logout_schema = UserLogoutSchema
@@ -100,6 +103,10 @@ class ChooseSchema(Enum):
     register_client_bank_account = RegisterClientBankAccount
     update_client_bank_account = UpdateUserBankAccounts
     delete_client_bank_account = DeleteClientBankAccount
+    cash_flow_withdrawal_to_external_bank = CashFlowWithdrawalToExternalBank
+    exchange_proposal_simulation = ExchangeProposalSimulation
+    exchange_proposal_pre_execution = ExchangeProposalPreExecution
+    exchange_proposal_execution = ExchangeProposalExecution
 
     # MAPINGUARI
     mapinguari_user_update = MapinguariUserUpdate

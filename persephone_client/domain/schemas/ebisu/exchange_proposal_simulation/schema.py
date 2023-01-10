@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 
 
-class UserTimeExperienceUsSchema(BaseModel):
+class ExchangeProposalSimulation(BaseModel):
     unique_id: str
     device_id: str
     device_info: dict
-    time_experience: str
+    proposal_data: dict

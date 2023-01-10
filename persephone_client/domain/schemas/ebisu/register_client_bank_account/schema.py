@@ -17,5 +17,7 @@ class BankAccounts(BaseModel):
 
 class RegisterClientBankAccount(BaseModel):
     unique_id: UUID4
+    device_id: str
+    device_info: dict
     bank_account: BankAccounts
     device_info: DeviceInformationOptional
