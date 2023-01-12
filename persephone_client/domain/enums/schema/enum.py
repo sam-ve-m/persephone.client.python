@@ -54,6 +54,7 @@ from persephone_client.domain.schemas.ebisu import (
     UpdateUserBankAccounts,
     DeleteClientBankAccount,
 )
+from persephone_client.domain.schemas.mapinguari.user_update.schema import MapinguariUserUpdate
 
 
 class ChooseSchema(Enum):
@@ -106,3 +107,6 @@ class ChooseSchema(Enum):
     exchange_proposal_simulation = ExchangeProposalSimulation
     exchange_proposal_pre_execution = ExchangeProposalPreExecution
     exchange_proposal_execution = ExchangeProposalExecution
+
+    # MAPINGUARI
+    mapinguari_user_update = MapinguariUserUpdate
