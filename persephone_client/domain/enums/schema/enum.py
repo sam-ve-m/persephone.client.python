@@ -5,6 +5,8 @@ from persephone_client.domain.schemas.ebisu.cash_flow_withdrawal_to_external_ban
 from persephone_client.domain.schemas.ebisu.exchange_proposal_execution.schema import ExchangeProposalExecution
 from persephone_client.domain.schemas.ebisu.exchange_proposal_pre_execution.schema import ExchangeProposalPreExecution
 from persephone_client.domain.schemas.ebisu.exchange_proposal_simulation.schema import ExchangeProposalSimulation
+from persephone_client.domain.schemas.jormungandr.term.get_order_token.schema import GetOrderTokenVariableIncome, \
+    GetOrderTokenFixedIncome
 from persephone_client.domain.schemas.sphinx.cpf_validation.schema import CpfValidation
 from persephone_client.domain.schemas.sphinx.cpf_validation_status.schema import CpfValidationStatus
 from persephone_client.domain.schemas.sphinx.picpay_user_data.schema import PicpayUserData
@@ -107,6 +109,10 @@ class ChooseSchema(Enum):
     exchange_proposal_simulation = ExchangeProposalSimulation
     exchange_proposal_pre_execution = ExchangeProposalPreExecution
     exchange_proposal_execution = ExchangeProposalExecution
+
+    # JORMUNGADR
+    get_order_token_variable_income = GetOrderTokenVariableIncome
+    get_order_token_fixed_income = GetOrderTokenFixedIncome
 
     # MAPINGUARI
     mapinguari_user_update = MapinguariUserUpdate
