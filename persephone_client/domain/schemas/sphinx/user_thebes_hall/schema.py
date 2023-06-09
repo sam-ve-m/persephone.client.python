@@ -7,4 +7,3 @@ class UserThebesHallSchema(BaseModel):
     device_info: dict
     jwt: constr(min_length=2)
     jwt_payload_data: dict
-    device_information: dict
